@@ -1,16 +1,22 @@
-import express from 'express';
-import cors from 'cors';
-const app = express()
+import express, { Express } from 'express';
+import routes from './routes/index.routes.js';
 
-app.use(cors())
+class App {
+	constructor() {
+		this.server = express();
+		this.middlewares();
+		this.routes();
+	}
 
-app.get('/', (req, res) => {
-	res.json('Hello World')
-})
+	routes() {
+		this.server.use(routes);
+	}
 
-app.post('/test', (req, res, err) => {
-	console.log(req.body)
-	res.json('Successful post')
-})
+	middlewares() {
 
-export default app;
+	}
+
+	server: Express
+}
+
+export default new App().server;

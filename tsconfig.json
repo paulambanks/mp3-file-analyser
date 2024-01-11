@@ -4,9 +4,7 @@
 		"./src/**/*.ts"
 	],
 	"exclude": [
-		"./src/*.test.ts",
-		"./src/**/*.test.ts",
-		"../../node_modules"
+		"./node_modules"
 	],
 	"compilerOptions": {
 		"target": "es2022",
