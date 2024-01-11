@@ -1,22 +1,23 @@
-import express, { Express } from 'express';
+import express, { Request, NextFunction, Response } from 'express';
 import routes from './routes/index.routes.js';
 
-class App {
-	constructor() {
-		this.server = express();
-		this.middlewares();
-		this.routes();
-	}
+const server = express();
+server.use(routes);
 
-	routes() {
-		this.server.use(routes);
-	}
+server.use((
+  error: Error | null,
+  request: Request,
+  response: Response,
+  next: NextFunction,
+) => {
+  if (error == null) {
+    return next();
+  }
 
-	middlewares() {
+  response.status(400).send({
+    name: error.name,
+    message: error.message,
+  });
+});
 
-	}
-
-	server: Express
-}
-
-export default new App().server;
+export default server;

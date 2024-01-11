@@ -1,32 +1,32 @@
 {
-	"include": [
-		"./src/*.ts",
-		"./src/**/*.ts"
-	],
-	"exclude": [
-		"./node_modules"
-	],
-	"compilerOptions": {
-		"target": "es2022",
-		"module": "nodenext",
-		"moduleResolution": "nodenext",
+  "include": [
+    "./src/*.ts",
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ],
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
 
-		"noEmit": false,
-		"outDir": "./build",
-		"declaration": true,
+    "noEmit": false,
+    "outDir": "./build",
+    "declaration": true,
 
-		"allowSyntheticDefaultImports": false,
-		"esModuleInterop": true,
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": true,
 
-		"resolveJsonModule": false,
-		"inlineSourceMap": true,
-		"inlineSources": true,
-		"noEmitHelpers": true,
-		"noEmitOnError": true,
-		"forceConsistentCasingInFileNames": true,
-		"strict": true,
+    "resolveJsonModule": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
 
-		"skipDefaultLibCheck": false,
-		"skipLibCheck": true
-	}
+    "skipDefaultLibCheck": false,
+    "skipLibCheck": true
+  }
 }
