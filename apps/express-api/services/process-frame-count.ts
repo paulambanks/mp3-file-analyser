@@ -23,7 +23,7 @@ export function processFrameCount(buffer: Buffer) {
     try {
       const frameHeader = new FrameHeader(frameBuffer);
       if (!frameHeader.IsFrameHeader) {
-        throw new Error(`Frame SyncWord not found ${frameCount}`);
+        throw new Error(`Frame SyncWord not found`);
       }
 
       offset += frameHeader.FrameLength;

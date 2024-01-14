@@ -25,7 +25,7 @@ describe('UploadController', () => {
     expect(JSON.parse(response.text))
       .to.deep.equal({
         name: 'BadRequestError',
-        message: 'Error while processing frame 1: Invalid MP3 Version',
+        message: 'Error while processing frame 1: Frame SyncWord not found',
       });
   });
 });
