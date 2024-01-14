@@ -1,0 +1,46 @@
+version: '3'
+services:
+
+  yarn-svelte:
+    image: node:20-alpine
+    entrypoint: yarn
+    command: install
+    restart: no
+    working_dir: /home/node/mp3
+    volumes:
+      - ./apps/svelte-mp3-analyzer:/home/node/mp3
+      - $HOME/.yarnrc.yml:/home/node/.yarnrc.yml
+
+  svelte:
+    image: node:20-alpine
+    depends_on:
+      yarn-svelte:
+        condition: service_completed_successfully
+    command: yarn run dev --host 0.0.0.0
+    working_dir: /home/node/mp3
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./apps/svelte-mp3-analyzer:/home/node/mp3
+    environment:
+      - EXPRESS_API_BASE_URL=http://express-api:3000
+
+  yarn-express-api:
+    image: node:20-alpine
+    entrypoint: yarn
+    command: install
+    restart: no
+    working_dir: /home/node/mp3
+    volumes:
+      - ./apps/express-api:/home/node/mp3
+      - $HOME/.yarnrc.yml:/home/node/.yarnrc.yml
+
+  express-api:
+    image: node:20-alpine
+    depends_on:
+      yarn-express-api:
+        condition: service_completed_successfully
+    command: yarn run start:watch
+    working_dir: /home/node/mp3
+    volumes:
+      - ./apps/express-api:/home/node/mp3
