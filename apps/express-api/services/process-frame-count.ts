@@ -22,11 +22,12 @@ export function processFrameCount(buffer: Buffer) {
     frameCount++;
     try {
       const frameHeader = new FrameHeader(frameBuffer);
+      if (!frameHeader.IsFrameHeader) {
+        throw new Error(`Frame SyncWord not found ${frameCount}`);
+      }
+
       offset += frameHeader.FrameLength;
       frameBuffer = frameBuffer.subarray(frameHeader.FrameLength);
-      if (!frameHeader.IsFrameHeader) {
-        break;
-      }
     } catch (error) {
       if (error instanceof Error) {
         throw new BadRequest(`Error while processing frame ${frameCount}: ${error.message}`);

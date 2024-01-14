@@ -5,12 +5,14 @@
 
     import { enhance } from '$app/forms';
     import type { ActionData } from './$types';
+    import { cn } from "$lib/utils";
+    import Icon from "@iconify/svelte";
 
     export let form: ActionData;
 </script>
 
 <div class="flex items-center justify-center flex-col">
-    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
+    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-t shadow sm:p-6 md:p-8">
         <form
             enctype="multipart/form-data"
             class="space-y-6"
@@ -41,10 +43,33 @@
             </Button>
         </form>
     </div>
-
-    <div>
-        {#if form?.data?.frameCount}
-            <p id="result">Frame count: {form?.data?.frameCount}</p>
-        {/if}
-    </div>
+    {#if form?.ok !== undefined}
+        <div class={cn('w-full shadow max-w-sm rounded-b p-4 border-t-4',
+            form?.ok === true && "bg-green-100 border-green-400 text-green-700",
+            form?.ok === false && "border-red-400 bg-red-100 text-red-700",
+            )}
+             role="alert"
+        >
+            <div class="flex">
+                <div class="py-1">
+                    {#if form?.ok === true}
+                        <Icon class="fill-current h-6 w-6 mr-4" icon="zondicons:exclamation-outline" color="#2f855a" />
+                    {:else}
+                        <Icon class="fill-current h-6 w-6 mr-4" icon="zondicons:exclamation-outline" color="#c53030" />
+                    {/if}
+                </div>
+                <div>
+                    {#if form?.ok === true}
+                        <p class="font-bold">Frame count performed successfully</p>
+                        <p class="text-sm">Filename: {form?.filename}</p>
+                        <p class="text-sm">Frame count: {form?.frameCount}</p>
+                    {:else}
+                        <p class="font-bold">There was an error whilst processing the frame count.</p>
+                        <p class="text-sm">Filename: {form?.filename}</p>
+                        <p class="text-sm">{form?.message}</p>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    {/if}
 </div>
