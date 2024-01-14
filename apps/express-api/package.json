@@ -8,18 +8,13 @@
     "node": ">= 20"
   },
   "description": "App that accepts an MP3 file and responds with the number of frames in the file.",
-  "main": "./src/main.ts",
-  "files": [
-    "build",
-    "src",
-    "!*.test.ts"
-  ],
+  "main": "./main.ts",
   "scripts": {
-    "start": "node --import=tsx src/main.ts",
-    "start:watch": "node --import=tsx --watch src/main.ts",
+    "start": "node --import=tsx main.ts",
+    "start:watch": "node --import=tsx --watch main.ts",
     "build": "tsc",
     "build:watch": "tsc --watch --watchDirectory usefsevents --watchFile usefsevents --preserveWatchOutput",
-    "test": "tsx --test src/**/*.test.ts"
+    "test": "tsx --test **/*.test.ts"
   },
   "devDependencies": {
     "@pnb/eslint": "^2.2.0",
