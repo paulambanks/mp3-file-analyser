@@ -18,6 +18,6 @@ describe('processFrameCount', () => {
     const buffer = await readFile(url);
 
     expect(() => processFrameCount(buffer))
-      .to.throw('Error while processing frame 1: Invalid MP3 Version');
+      .to.throw('Error while processing frame 1: Frame SyncWord not found');
   });
 });
