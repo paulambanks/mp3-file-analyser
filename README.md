@@ -23,7 +23,7 @@ MP3 frame counter aims to provide an API endpoint that accepts an MP3 file and r
 The endpoint should successfully count the number of frames for MPEG Version 1 Audio Layer 3 files.
 
 Documents used:
-1. [MP£ WIKI](https://en.wikipedia.org/wiki/MP3#/media/File:Mp3filestructure.svg)
+1. [MP3 WIKI](https://en.wikipedia.org/wiki/MP3#/media/File:Mp3filestructure.svg)
 2. [Frame Header](http://www.mp3-tech.org/programmer/frame_header.html#:~:text=The%20frame%20header%20itself%20is,feature%20an%20optional%20CRC%20checksum.)
 
 ---
@@ -39,6 +39,9 @@ https://docs.docker.com/get-docker
 3. Access the app via Svelte http://localhost:5173/
 
 ```shell
+git clone https://github.com/paulambanks/mp3-file-analyser.git
+cd mp3-file-analyser
+
 docker compose up
 ```
 
@@ -63,6 +66,27 @@ docker compose down
 cd apps/express-api
 yarn test
 ```
+
+### Interacting with the API
+
+1. Directly with the API (Curl) - with already existing sample or by passing a new filepath
+
+```shell
+curl -Ss -X POST http://localhost:3000/file-upload -F "file=@apps/express-api/fixtures/sample.mp3"
+```
+
+2. Front-End uploader
+
+![uploader.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader.png)
+
+Successful upload:
+
+![uploader-success.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-success.png)
+
+Errors:
+
+![uploader-error.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-error.png)
+---
 
 
 
