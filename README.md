@@ -58,9 +58,7 @@ Svelte app is running on http://localhost:5173
 
 ### Running tests
 
-1. Access API codebase
-2. Re-run yarn install
-3. Run tests
+Access API codebase and run tests
 
 ```shell
 cd apps/express-api
