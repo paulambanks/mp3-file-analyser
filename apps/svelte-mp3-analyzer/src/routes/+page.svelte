@@ -62,11 +62,11 @@
                     {#if form?.ok === true}
                         <p class="font-bold">Frame count performed successfully</p>
                         <p class="text-sm">Filename: {form?.filename}</p>
-                        <p class="text-sm">Frame count: {form?.frameCount}</p>
+                        <p class="text-sm">Frame count: {form?.data?.frameCount}</p>
                     {:else}
                         <p class="font-bold">There was an error whilst processing the frame count.</p>
                         <p class="text-sm">Filename: {form?.filename}</p>
-                        <p class="text-sm">{form?.message}</p>
+                        <p class="text-sm">{form?.error?.message}</p>
                     {/if}
                 </div>
             </div>

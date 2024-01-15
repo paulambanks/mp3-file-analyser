@@ -1,8 +1,19 @@
-import { type RequestHandler } from '@sveltejs/kit';
+import { type RequestEvent } from '@sveltejs/kit';
 // eslint-disable-next-line n/no-missing-import
 import { EXPRESS_API_BASE_URL } from '$env/static/private';
 
-const uploadFile: RequestHandler = async (event) => {
+type Data = {
+  ok: boolean;
+  filename: string;
+  data?: {
+    frameCount: number;
+  };
+  error?: {
+    name: string;
+    message: string;
+  };
+};
+const uploadFile = async (event: RequestEvent): Promise<Data> => {
   const body = await event.request.formData();
   const file = body.get('file') as File;
 
@@ -19,14 +30,14 @@ const uploadFile: RequestHandler = async (event) => {
     return {
       ok: false,
       filename: file.name,
-      ...await response.json(),
+      error: await response.json() as Data['error'],
     };
   }
 
   return {
     ok: true,
     filename: file.name,
-    ...await response.json(),
+    data: await response.json() as Data['data'],
   };
 };
 
