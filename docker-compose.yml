@@ -44,5 +44,7 @@ services:
         condition: service_completed_successfully
     command: yarn run start:watch
     working_dir: /home/node/mp3
+    ports:
+      - "3000:3000"
     volumes:
       - ./apps/express-api:/home/node/mp3

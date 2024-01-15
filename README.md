@@ -62,7 +62,7 @@ Tests have to be run outside the Docker containers.
 1. Stop the Docker containers
 2. Access API codebase
 3. Re-run yarn install
-3. Run tests
+4. Run tests
 
 ```shell
 docker compose down
