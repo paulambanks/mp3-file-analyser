@@ -77,15 +77,16 @@ curl -Ss -X POST http://localhost:3000/file-upload -F "file=@apps/express-api/fi
 
 2. Front-End uploader
 
-![uploader.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader.png)
+<img alt="uploader" src="https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader.png" width=50% height=50%>
 
 Successful upload:
 
-![uploader-success.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-success.png)
+<img alt="uploader-success" src="https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-success.png" width=50% height=50%>
 
 Errors:
 
-![uploader-error.png](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-error.png)
+<img alt="uploader-errors" src="https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/uploader-error.png" width=50% height=50%>
+
 ---
 
 
