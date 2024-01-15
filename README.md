@@ -1,6 +1,6 @@
 # MP3 FRAME COUNTER
 
-![undraw_happy_music_g6wc.svg](https://github.com/paulambanks/mp3-file-analyser/apps/assets/undraw_happy_music_g6wc.svg])
+![undraw_happy_music_g6wc.svg](https://raw.githubusercontent.com/paulambanks/mp3-file-analyser/main/apps/assets/undraw_happy_music_g6wc.svg)
 ---
 
 ![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F) &nbsp;
