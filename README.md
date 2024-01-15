@@ -34,7 +34,10 @@ Documents used:
 I assume that docker is both installed and running.
 https://docs.docker.com/get-docker
 
+
+
 1. Clone the repo
+2. Please use Yarn as a package manager
 2. Build the Docker containers
 3. Access the app via Svelte http://localhost:5173/
 
@@ -47,10 +50,10 @@ docker compose up
 
 ```
 # API
-Express Server is running on http://localhost/3000
+Express Server is running on http://localhost:3000
 
 # SVELTE FE
-Svelte app is running on http://localhost/5173
+Svelte app is running on http://localhost:5173
 ```
 
 ### Running tests
@@ -58,12 +61,14 @@ Svelte app is running on http://localhost/5173
 Tests have to be run outside the Docker containers.
 1. Stop the Docker containers
 2. Access API codebase
+3. Re-run yarn install
 3. Run tests
 
 ```shell
 docker compose down
 
 cd apps/express-api
+yarn install
 yarn test
 ```
 
