@@ -10,6 +10,8 @@ services:
     volumes:
       - ./apps/svelte-mp3-analyzer:/home/node/mp3
       - $HOME/.yarnrc.yml:/home/node/.yarnrc.yml
+    environment:
+      - EXPRESS_API_BASE_URL=http://express-api:3000
 
   svelte:
     image: node:20-alpine
