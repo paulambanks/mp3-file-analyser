@@ -58,17 +58,12 @@ Svelte app is running on http://localhost:5173
 
 ### Running tests
 
-Tests have to be run outside the Docker containers.
-1. Stop the Docker containers
-2. Access API codebase
-3. Re-run yarn install
-4. Run tests
+1. Access API codebase
+2. Re-run yarn install
+3. Run tests
 
 ```shell
-docker compose down
-
 cd apps/express-api
-yarn install
 yarn test
 ```
 
